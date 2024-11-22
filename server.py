@@ -52,7 +52,7 @@ async def predict(file: UploadFile = File(...)):
     infer = model.signatures['serving_default']  # Default signature for inference
     predictions = infer(tf.convert_to_tensor(image))
 
-    # Assuming the output is a dictionary with class probabilities
+    # The output is a dictionary with class probabilities
     probabilities = predictions['output_0'].numpy()[0]  # Extract probabilities
     predicted_class = np.argmax(probabilities)  # Get the predicted class index
     predicted_confidence = probabilities[predicted_class] * 100  # Convert to percentage
@@ -70,7 +70,7 @@ async def predict(file: UploadFile = File(...)):
         # Create the response with class names and prediction percentages
         response = {
             "predicted_class": class_names[predicted_class],  # Return the predicted class name
-            "predicted_confidence": predicted_confidence,  # Confidence of the predicted class
+            "predicted_confidence":predicted_confidence,  # Confidence of the predicted class
         }
     
     return JSONResponse(content=response)
