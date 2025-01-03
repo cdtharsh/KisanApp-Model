@@ -43,7 +43,7 @@ class_names = [
 ]
 
 # Confidence threshold (set to 99%)
-CONFIDENCE_THRESHOLD = 99.0
+CONFIDENCE_THRESHOLD = 90.0
 
 # Function to preprocess an image from UploadFile (in memory)
 async def load_and_preprocess_image(image_file: UploadFile, target_size=(224, 224)):
